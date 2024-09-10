@@ -2,6 +2,7 @@ import { redisClient } from "../utils/redis.js";
 
 const checkRedis = async(req, res, next) =>{
   const { checkKey } = req.body;
+  
   const data = await redisClient.GET(checkKey);
   if(data){
     return res.status(200).json({
